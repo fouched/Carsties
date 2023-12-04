@@ -12,7 +12,7 @@ namespace AuctionService.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Actions",
+                name: "Auctions",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "uuid", nullable: false),
@@ -28,7 +28,7 @@ namespace AuctionService.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Actions", x => x.Id);
+                    table.PrimaryKey("PK_Auctions", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -50,7 +50,7 @@ namespace AuctionService.Data.Migrations
                     table.ForeignKey(
                         name: "FK_Items_Actions_AuctionId",
                         column: x => x.AuctionId,
-                        principalTable: "Actions",
+                        principalTable: "Auctions",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -69,7 +69,7 @@ namespace AuctionService.Data.Migrations
                 name: "Items");
 
             migrationBuilder.DropTable(
-                name: "Actions");
+                name: "Auctions");
         }
     }
 }
